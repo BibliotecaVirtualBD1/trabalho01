@@ -54,7 +54,13 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
-    b) Crie uma lista com os 10 principais relatórios que poderão ser obtidos por meio do sistema proposto!
+    b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
+>A biblioteca virtual deve fornecer os seguintes relatórios:
+* Relatório de cadastro que informe o e-mail, nome de usuário e a senha do usuário.
+* Relatório de edição do perfil que informe o sexo do usuário, línguas, seu país, estado, cidade e opcionalmente o bairro do usuário, gênero(s) preferido de leitura, livro(s) e/ou autor(es) preferidos.
+* Relatório com as informações do autor (País, estado, cidade, sexo e livros escritos).
+* Relatório com a lista de amigos (usuários) adicionados pelo usuário.
+* Relatório que informa os eventos próximos baseado na localização fornecida pelo usuário.
     
 >## Marco de Entrega 01 em: (24/03/2018)<br>
 
