@@ -41,7 +41,7 @@ Neste ponto a codificação não e necessária, somente as ideias de telas devem
 
 Sugestão: https://balsamiq.com/products/mockups/<br>
 
-![Alt text](https://github.com/discipbd1/trab01/blob/master/balsamiq.png?raw=true "Title")
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/biblioteca_comentarios.png "Title")
 ![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/discipint/trabalho01/blob/master/arquivos/EmpresaDevcom.pdf?raw=true "Empresa Devcom")<br>
 >Arquivo PDF do Protótipo Balsamiq feito para Biblioteca Virtual
 https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Biblioteca%20Virtual%20(2).pdf
