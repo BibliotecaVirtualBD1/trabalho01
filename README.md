@@ -106,6 +106,7 @@ https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Bibliote
         a) inclusão do modelo lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
+   ![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/modelo_logico.png "Modelo lógico")
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas DDL 
