@@ -52,6 +52,7 @@ https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Bibliote
     b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
     e deve ser criada antes do modelo conceitual
     c) Após criada esta tabela não deve ser modificada, pois será comparada com os resultados finais na conclusão do trabalho
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Tabela_biblioteca.ods "Tabela de dados")
     
     
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
