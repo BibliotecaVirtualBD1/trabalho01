@@ -109,7 +109,119 @@ https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Bibliote
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas DDL 
-        (criação de tabelas, alterações, etc..)          
+        (criação de tabelas, alterações, etc..) 
+        /* Lógico_1: */
+
+CREATE TABLE PESSOA (
+    nome varchar(50),
+    país varchar(50),
+    cidade varchar(50),
+    estado varchar(50)
+);
+
+CREATE TABLE AUTOR (
+    codigo int PRIMARY KEY
+);
+
+CREATE TABLE USUARIO (
+    email varchar(50),
+    senha varchar(50),
+    PRIMARY KEY (email, senha)
+);
+
+CREATE TABLE EVENTO (
+    cod_evento int PRIMARY KEY,
+    localizacao varchar(50),
+    data date,
+    hora time
+);
+
+CREATE TABLE LIVRO (
+    genero varchar(30),
+    nome_livro varchar(30),
+    cod_livro int PRIMARY KEY
+);
+
+CREATE TABLE Amizade (
+    FK_USUARIO_email varchar(50),
+    FK_USUARIO_senha varchar(50),
+    FK_USUARIO_email_ varchar(50),
+    FK_USUARIO_senha_ varchar(50)
+);
+
+CREATE TABLE Comparece (
+    FK_EVENTO_cod_evento int,
+    FK_USUARIO_email varchar(50),
+    FK_USUARIO_senha varchar(50)
+);
+
+CREATE TABLE Leu (
+    FK_USUARIO_email varchar(50),
+    FK_USUARIO_senha varchar(50),
+    FK_LIVRO_cod_livro int
+);
+
+CREATE TABLE Postagem (
+    FK_USUARIO_email varchar(50),
+    FK_USUARIO_senha varchar(50),
+    FK_LIVRO_cod_livro int,
+    curtidas int
+);
+
+CREATE TABLE Escreveu (
+    FK_AUTOR_codigo int,
+    FK_LIVRO_cod_livro int
+);
+ 
+ALTER TABLE Amizade ADD CONSTRAINT FK_Amizade_0
+    FOREIGN KEY (FK_USUARIO_email, FK_USUARIO_senha)
+    REFERENCES USUARIO (email, senha)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE Amizade ADD CONSTRAINT FK_Amizade_1
+    FOREIGN KEY (FK_USUARIO_email_, FK_USUARIO_senha_)
+    REFERENCES USUARIO (email, senha)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE Comparece ADD CONSTRAINT FK_Comparece_0
+    FOREIGN KEY (FK_EVENTO_cod_evento)
+    REFERENCES EVENTO (cod_evento)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Comparece ADD CONSTRAINT FK_Comparece_1
+    FOREIGN KEY (FK_USUARIO_email, FK_USUARIO_senha)
+    REFERENCES USUARIO (email, senha)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Leu ADD CONSTRAINT FK_Leu_0
+    FOREIGN KEY (FK_USUARIO_email, FK_USUARIO_senha)
+    REFERENCES USUARIO (email, senha)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Leu ADD CONSTRAINT FK_Leu_1
+    FOREIGN KEY (FK_LIVRO_cod_livro)
+    REFERENCES LIVRO (cod_livro)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Postagem ADD CONSTRAINT FK_Postagem_0
+    FOREIGN KEY (FK_USUARIO_email, FK_USUARIO_senha)
+    REFERENCES USUARIO (email, senha)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Postagem ADD CONSTRAINT FK_Postagem_1
+    FOREIGN KEY (FK_LIVRO_cod_livro)
+    REFERENCES LIVRO (cod_livro)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Escreveu ADD CONSTRAINT FK_Escreveu_0
+    FOREIGN KEY (FK_AUTOR_codigo)
+    REFERENCES AUTOR (codigo)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Escreveu ADD CONSTRAINT FK_Escreveu_1
+    FOREIGN KEY (FK_LIVRO_cod_livro)
+    REFERENCES LIVRO (cod_livro)
+    ON DELETE SET NULL ON UPDATE CASCADE;
         
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
