@@ -73,7 +73,7 @@ https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Tabela_b
         * O protótipo deve possui no mínimo duas relações N para N
         * o mínimo de entidades do modelo conceitual será igual a 5
         
-![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/modelo%20biblioteca%20virtual%20final.png "Modelo Conceitual")
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/modelo%20conceitual%20biblioteca%20virtual%20final.png "Modelo Conceitual")
     
     B) NOTACAO UML (Caso esteja fazendo a disciplina de analise)
     C) QUALIDADE 
@@ -107,7 +107,7 @@ https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Tabela_b
         a) inclusão do modelo lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
-   ![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/modelo_logico.png "Modelo lógico")
+   ![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/modelo%20logico%20biblioteca%20virtual%20final.png "Modelo lógico")
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas DDL 
