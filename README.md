@@ -250,6 +250,34 @@ ALTER TABLE curte ADD CONSTRAINT FK_curte_1
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
         a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físic
         b) formato .SQL
+insert into pessoa values(1,'João','Brasil','Espírito Santo','Vitória'),
+(2,'Pedro','Brasil','São Paulo','São Paulo'),
+(3,'José','Brasil','Rio de Janeiro','Búzios'),
+(4,'Maria','Brasil','Pará','Belém'),
+(5,'Joana','Brasil','Mato Grosso','Cuiabá'),
+(6,'Mário','Brasil','São Paulo','São Paulo'),
+(7,'Vinicius','Brasil','Amapá','Macapá');
+
+insert into usuario values('joao@gmail',md5('batata123'),1),
+('pedro@gmail',md5('paozinho123'),2),
+('jose@gmail',md5('senha123'),3),
+('maria@gmail',md5('maria123'),4),
+('joana@gmail',md5('bolo123'),5);
+
+insert into autor values
+(6),(7);
+
+insert into livro values('Romance','Helena',1),
+('Terror','O Iluminado',2),
+('Terror','Goosebumps',3),
+('Romance','Os Miseráveis',4);
+
+insert into postagem_posta_comentario values(1),(2),(3),(4),(5);
+
+insert into evento values(1,'Vitória','2018-10-25','10:00:00','Leitura Coletiva'),
+(2,'Serra','2019-01-03','12:00:00','Encontro de Leitores'),
+(3,'Cariacica','2018-07-30','18:00:00','Doação de Livros'),
+(4,'Vila Velha','2019-01-01','12:00:00','Livros Antigos');
 
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELA E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
@@ -257,6 +285,167 @@ ALTER TABLE curte ADD CONSTRAINT FK_curte_1
         b) Criar um novo banco de dados para testar a restauracao 
         (em caso de falha na restauração o grupo não pontuará neste quesito)
         c) formato .SQL
+  CREATE TABLE PESSOA (
+  cod_pessoa int PRIMARY KEY,
+  nome varchar(50),
+  pais varchar(50),
+  estado varchar(50),
+  idade varchar(50)
+);
+
+CREATE TABLE AUTOR (
+    cod_autor int PRIMARY KEY,
+    FK_PESSOA_cod_pessoa int 
+);
+
+CREATE TABLE USUARIO (
+    email varchar(50),
+    senha varchar(50),
+    FK_PESSOA_cod_pessoa int PRIMARY KEY
+);
+
+CREATE TABLE EVENTO (
+    cod_evento int PRIMARY KEY,
+    cidade varchar(50),
+    data date,
+    hora time,
+    nome varchar(50)
+);
+
+CREATE TABLE LIVRO (
+    genero varchar(50),
+    nome_livro varchar(50),
+    cod_livro int PRIMARY KEY
+);
+
+CREATE TABLE Postagem_posta_comentario (
+    codigo_postagem int PRIMARY KEY,
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_LIVRO_cod_livro int
+);
+
+CREATE TABLE Amizade (
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_USUARIO_FK_PESSOA_cod_pessoa_ int
+);
+
+CREATE TABLE Comparece (
+    FK_EVENTO_cod_evento int,
+    FK_USUARIO_FK_PESSOA_cod_pessoa int
+);
+
+CREATE TABLE Escreveu (
+    FK_AUTOR_cod_autor int,
+    FK_LIVRO_cod_livro int
+);
+
+CREATE TABLE Leu (
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_LIVRO_cod_livro int
+);
+
+CREATE TABLE curte (
+    FK_Postagem_posta_comentario_codigo_postagem int,
+    FK_USUARIO_FK_PESSOA_cod_pessoa int
+);
+ 
+ALTER TABLE AUTOR ADD CONSTRAINT FK_AUTOR_1
+    FOREIGN KEY (FK_PESSOA_cod_pessoa)
+    REFERENCES PESSOA (cod_pessoa)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE USUARIO ADD CONSTRAINT FK_USUARIO_1
+    FOREIGN KEY (FK_PESSOA_cod_pessoa)
+    REFERENCES PESSOA (cod_pessoa)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE Postagem_posta_comentario ADD CONSTRAINT FK_Postagem_posta_comentario_1
+    FOREIGN KEY (FK_USUARIO_FK_PESSOA_cod_pessoa)
+    REFERENCES USUARIO (FK_PESSOA_cod_pessoa);
+ 
+ALTER TABLE Postagem_posta_comentario ADD CONSTRAINT FK_Postagem_posta_comentario_2
+    FOREIGN KEY (FK_LIVRO_cod_livro)
+    REFERENCES LIVRO (cod_livro);
+ 
+ALTER TABLE Amizade ADD CONSTRAINT FK_Amizade_0
+    FOREIGN KEY (FK_USUARIO_FK_PESSOA_cod_pessoa)
+    REFERENCES USUARIO (FK_PESSOA_cod_pessoa)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE Amizade ADD CONSTRAINT FK_Amizade_1
+    FOREIGN KEY (FK_USUARIO_FK_PESSOA_cod_pessoa_)
+    REFERENCES USUARIO (FK_PESSOA_cod_pessoa)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ALTER TABLE Comparece ADD CONSTRAINT FK_Comparece_0
+    FOREIGN KEY (FK_EVENTO_cod_evento)
+    REFERENCES EVENTO (cod_evento)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Comparece ADD CONSTRAINT FK_Comparece_1
+    FOREIGN KEY (FK_USUARIO_FK_PESSOA_cod_pessoa)
+    REFERENCES USUARIO (FK_PESSOA_cod_pessoa)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Escreveu ADD CONSTRAINT FK_Escreveu_0
+    FOREIGN KEY (FK_AUTOR_cod_autor)
+    REFERENCES AUTOR (cod_autor)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Escreveu ADD CONSTRAINT FK_Escreveu_1
+    FOREIGN KEY (FK_LIVRO_cod_livro)
+    REFERENCES LIVRO (cod_livro)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Leu ADD CONSTRAINT FK_Leu_0
+    FOREIGN KEY (FK_USUARIO_FK_PESSOA_cod_pessoa)
+    REFERENCES USUARIO (FK_PESSOA_cod_pessoa)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Leu ADD CONSTRAINT FK_Leu_1
+    FOREIGN KEY (FK_LIVRO_cod_livro)
+    REFERENCES LIVRO (cod_livro)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE curte ADD CONSTRAINT FK_curte_0
+    FOREIGN KEY (FK_Postagem_posta_comentario_codigo_postagem)
+    REFERENCES Postagem_posta_comentario (codigo_postagem)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE curte ADD CONSTRAINT FK_curte_1
+    FOREIGN KEY (FK_USUARIO_FK_PESSOA_cod_pessoa)
+    REFERENCES USUARIO (FK_PESSOA_cod_pessoa)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+    
+ insert into pessoa values(1,'João','Brasil','Espírito Santo','Vitória'),
+(2,'Pedro','Brasil','São Paulo','São Paulo'),
+(3,'José','Brasil','Rio de Janeiro','Búzios'),
+(4,'Maria','Brasil','Pará','Belém'),
+(5,'Joana','Brasil','Mato Grosso','Cuiabá'),
+(6,'Mário','Brasil','São Paulo','São Paulo'),
+(7,'Vinicius','Brasil','Amapá','Macapá');
+
+insert into usuario values('joao@gmail',md5('batata123'),1),
+('pedro@gmail',md5('paozinho123'),2),
+('jose@gmail',md5('senha123'),3),
+('maria@gmail',md5('maria123'),4),
+('joana@gmail',md5('bolo123'),5);
+
+insert into autor values
+(6),(7);
+
+insert into livro values('Romance','Helena',1),
+('Terror','O Iluminado',2),
+('Terror','Goosebumps',3),
+('Romance','Os Miseráveis',4);
+
+insert into postagem_posta_comentario values(1),(2),(3),(4),(5);
+
+insert into evento values(1,'Vitória','2018-10-25','10:00:00','Leitura Coletiva'),
+(2,'Serra','2019-01-03','12:00:00','Encontro de Leitores'),
+(3,'Cariacica','2018-07-30','18:00:00','Doação de Livros'),
+(4,'Vila Velha','2019-01-01','12:00:00','Livros Antigos');
+
 #### 8.3 INCLUSÃO DO SCRIPT PARA EXCLUSÃO DE TABELAS EXISTENTES, CRIAÇÃO DE TABELA NOVAS E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
         (Drop table + Create de tabelas e estruturas de dados + dados a serem inseridos)
