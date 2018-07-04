@@ -265,14 +265,14 @@ insert into usuario values('joao@gmail',md5('batata123'),1),
 ('joana@gmail',md5('bolo123'),5);
 
 insert into autor values
-(6),(7);
+(1,6),(2,7);
 
 insert into livro values('Romance','Helena',1),
 ('Terror','O Iluminado',2),
 ('Terror','Goosebumps',3),
 ('Romance','Os Miseráveis',4);
 
-insert into postagem_posta_comentario values(1),(2),(3),(4),(5);
+insert into postagem_posta_comentario values(1,1,1),(2,2,2),(3,3,3),(4,4,3),(5,5,4);
 
 insert into evento values(1,'Vitória','2018-10-25','10:00:00','Leitura Coletiva'),
 (2,'Serra','2019-01-03','12:00:00','Encontro de Leitores'),
@@ -432,14 +432,14 @@ insert into usuario values('joao@gmail',md5('batata123'),1),
 ('joana@gmail',md5('bolo123'),5);
 
 insert into autor values
-(6),(7);
+(1,6),(2,7);
 
 insert into livro values('Romance','Helena',1),
 ('Terror','O Iluminado',2),
 ('Terror','Goosebumps',3),
 ('Romance','Os Miseráveis',4);
 
-insert into postagem_posta_comentario values(1),(2),(3),(4),(5);
+insert into postagem_posta_comentario values(1,1,1),(2,2,2),(3,3,3),(4,4,3),(5,5,4);
 
 insert into evento values(1,'Vitória','2018-10-25','10:00:00','Leitura Coletiva'),
 (2,'Serra','2019-01-03','12:00:00','Encontro de Leitores'),
