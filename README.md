@@ -492,7 +492,20 @@ select * from pessoa where not nome = 'João' and not idade = 'Búzios' <br>
 ![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/pessoa%20joao%20buzios.png)<br>
 
     b) Criar no mínimo 3 consultas com operadores aritméticos 
+select * from pessoa where cod_pessoa <> 5 <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/pessoa%20aritmetico.png)<br>
+select * from evento where cod_evento <= 3 <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/evento%20aritmetico.png)<br>
+select * from usuario where fk_pessoa_cod_pessoa >= 2 <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/usuario%20aritmetico.png)<br>
+
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
+select * from pessoa as pes where nome <> 'Maria' <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/pessoa%20renomear.png)<br>
+select * from livro as book where nome_livro = 'Os Miseráveis' <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/livro%20renomear.png)<br>
+select * from evento as festa where nome <> 'Doação de Livros' <br> 
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/evento%20renomear.png)<br>
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
     b) Criar uma consulta para cada tipo de função data apresentada.
