@@ -290,7 +290,7 @@ insert into evento values(1,'Vitória','2018-10-25','10:00:00','Leitura Coletiva
   nome varchar(50),
   pais varchar(50),
   estado varchar(50),
-  idade varchar(50)
+  cidade varchar(50)
 );
 
 CREATE TABLE AUTOR (
@@ -480,6 +480,17 @@ select * from evento where hora > '10:00:00' <br>
 ![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/evento%20where%20hora.png "evento")<br>
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
+select * from pessoa where cod_pessoa > 3 and estado <> 'São Paulo' <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/pessoa%20cod%20and%20estado.png)<br>
+select * from usuario where fk_pessoa_cod_pessoa = 1 or fk_pessoa_cod_pessoa = 4 <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/usuario%20cod%20or.png)<br>
+select * from evento where not cod_evento = 1 and not cod_evento = 3 <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/evento%20where%20not.png)<br>
+select * from livro where genero = 'Romance' and not cod_livro = 1 <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/livro%20where%20not.png)<br>
+select * from pessoa where not nome = 'João' and not idade = 'Búzios' <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/pessoa%20joao%20buzios.png)<br>
+
     b) Criar no mínimo 3 consultas com operadores aritméticos 
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
