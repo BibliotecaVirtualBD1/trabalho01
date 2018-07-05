@@ -470,6 +470,14 @@ select * from postagem_posta_comentario<br>
 select * from usuario<br>
 ![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/usuario.png "Usuário")<br>
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+select * from pessoa where estado = 'São Paulo' <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/pessoa%20where%20SP.png "Pessoa")<br>
+select cod_pessoa,nome from pessoa where cod_pessoa <= 5 <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/pessoa%20where%20nome.png "Pessoa")<br>
+select * from livro where genero = 'Terror' <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/livro%20where%20genero.png "livro")<br>
+select * from evento where hora > '10:00:00' <br>
+![Alt text](https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/imagens/prints%20tabelas/evento%20where%20hora.png "evento")<br>
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
     b) Criar no mínimo 3 consultas com operadores aritméticos 
