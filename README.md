@@ -85,7 +85,7 @@ https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Tabela_b
     
 #### 5.1 Validação do Modelo Conceitual
     Semaforup: Christian Lopes, Gabriel Klier
-    [Grupo02]: [Nomes dos que participaram na avaliação]
+    TimeBus: Mariana Polli, Kezia de Souza, Júlia Ferreira
 ## Marco de Entrega 01 em: (20/04/2018)<br>
 #### 5.2 DECISÕES DE PROJETO
     [atributo]: [descrição da decisão]
