@@ -115,104 +115,108 @@ https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Tabela_b
 /* Lógico_1: */
 
 CREATE TABLE PESSOA (
-    cod_pessoa serial PRIMARY KEY,
+    cod_pessoa int PRIMARY KEY,
     nome varchar(50),
-    FK_CIDADE_cod_cidade serial
+    FK_CIDADE_cod_cidade int
 );
 
 CREATE TABLE USUARIO (
     email varchar(50),
     senha varchar(50),
-    FK_PESSOA_cod_pessoa serial PRIMARY KEY
+    FK_PESSOA_cod_pessoa int PRIMARY KEY
 );
 
 CREATE TABLE EVENTO (
-    cod_evento serial PRIMARY KEY,
+    cod_evento int PRIMARY KEY,
     nome_evento varchar(50)
 );
 
 CREATE TABLE POSTAGEM_Posta_comentario (
-    cod_postagem serial PRIMARY KEY,
+    cod_postagem int PRIMARY KEY,
     data_postagem date,
     hora_postagem time,
-    FK_LIVRO_cod_livro serial,
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial
+    FK_LIVRO_cod_livro int,
+    FK_USUARIO_FK_PESSOA_cod_pessoa int
 );
 
 CREATE TABLE LIVRO (
-    cod_livro serial PRIMARY KEY,
-    nome_livro varchar(50),
-    autor varchar(50)
+    cod_livro int PRIMARY KEY,
+    nome_livro varchar(50)
 );
 
 CREATE TABLE ESTADO (
-    cod_estado serial PRIMARY KEY,
+    cod_estado int PRIMARY KEY,
     estado_desc varchar(50),
-    FK_PAIS_cod_pais serial
+    FK_PAIS_cod_pais int
 );
 
 CREATE TABLE CIDADE (
-    cod_cidade serial PRIMARY KEY,
+    cod_cidade int PRIMARY KEY,
     cidade_desc varchar(50),
-    FK_ESTADO_cod_estado serial
+    FK_ESTADO_cod_estado int
 );
 
 CREATE TABLE PAIS (
-    cod_pais serial PRIMARY KEY,
+    cod_pais int PRIMARY KEY,
     pais_desc varchar(50)
 );
 
 CREATE TABLE GENERO (
-    cod_genero serial PRIMARY KEY,
+    cod_genero int PRIMARY KEY,
     genero_desc varchar(50)
 );
 
 CREATE TABLE TIPO_EVENTO (
     tipo_desc varchar(50),
-    cod_tipo serial PRIMARY KEY
+    cod_tipo int PRIMARY KEY
 );
 
 CREATE TABLE Amizade (
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial,
-    FK_USUARIO_FK_PESSOA_cod_pessoa_ serial
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_USUARIO_FK_PESSOA_cod_pessoa_ int
 );
 
 CREATE TABLE Comparece_evento (
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial,
-    FK_EVENTO_cod_evento serial
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_EVENTO_cod_evento int
 );
 
 CREATE TABLE Leu (
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial,
-    FK_LIVRO_cod_livro serial
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_LIVRO_cod_livro int
 );
 
-CREATE TABLE Curte_postagem (
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial,
-    FK_POSTAGEM_Posta_comentario_cod_postagem serial
+CREATE TABLE Curte (
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_POSTAGEM_Posta_comentario_cod_postagem int
 );
 
 CREATE TABLE Evento_acontece (
-    FK_CIDADE_cod_cidade serial,
-    FK_EVENTO_cod_evento serial,
+    FK_CIDADE_cod_cidade int,
+    FK_EVENTO_cod_evento int,
     data_evento date,
     hora_evento time
 );
 
 CREATE TABLE Livro_genero (
-    FK_LIVRO_cod_livro serial,
-    FK_GENERO_cod_genero serial
+    FK_LIVRO_cod_livro int,
+    FK_GENERO_cod_genero int
+);
+
+CREATE TABLE Escreve_livro (
+    FK_PESSOA_cod_pessoa int,
+    FK_LIVRO_cod_livro int
 );
 
 CREATE TABLE Evento_possui_tipo (
-    FK_TIPO_EVENTO_cod_tipo serial,
-    FK_EVENTO_cod_evento serial
+    FK_TIPO_EVENTO_cod_tipo int,
+    FK_EVENTO_cod_evento int
 );
  
 ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_1
     FOREIGN KEY (FK_CIDADE_cod_cidade)
     REFERENCES CIDADE (cod_cidade)
-    ON DELETE SET NULL ON UPDATE CASCADE;
+    ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE USUARIO ADD CONSTRAINT FK_USUARIO_1
     FOREIGN KEY (FK_PESSOA_cod_pessoa)
@@ -267,12 +271,12 @@ ALTER TABLE Leu ADD CONSTRAINT FK_Leu_1
     REFERENCES LIVRO (cod_livro)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE Curte_postagem ADD CONSTRAINT FK_Curte_postagem_0
+ALTER TABLE Curte ADD CONSTRAINT FK_Curte_0
     FOREIGN KEY (FK_USUARIO_FK_PESSOA_cod_pessoa)
     REFERENCES USUARIO (FK_PESSOA_cod_pessoa)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE Curte_postagem ADD CONSTRAINT FK_Curte_postagem_1
+ALTER TABLE Curte ADD CONSTRAINT FK_Curte_1
     FOREIGN KEY (FK_POSTAGEM_Posta_comentario_cod_postagem)
     REFERENCES POSTAGEM_Posta_comentario (cod_postagem)
     ON DELETE SET NULL ON UPDATE CASCADE;
@@ -296,6 +300,16 @@ ALTER TABLE Livro_genero ADD CONSTRAINT FK_Livro_genero_1
     FOREIGN KEY (FK_GENERO_cod_genero)
     REFERENCES GENERO (cod_genero)
     ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE Escreve_livro ADD CONSTRAINT FK_Escreve_livro_0
+    FOREIGN KEY (FK_PESSOA_cod_pessoa)
+    REFERENCES PESSOA (cod_pessoa)
+    ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE Escreve_livro ADD CONSTRAINT FK_Escreve_livro_1
+    FOREIGN KEY (FK_LIVRO_cod_livro)
+    REFERENCES LIVRO (cod_livro)
+    ON DELETE SET NULL ON UPDATE CASCADE;
  
 ALTER TABLE Evento_possui_tipo ADD CONSTRAINT FK_Evento_possui_tipo_0
     FOREIGN KEY (FK_TIPO_EVENTO_cod_tipo)
@@ -319,9 +333,14 @@ insert into pessoa values
 (4,'Maria',3),
 (5,'Joana',4),
 (6,'Mário',4),
-(7,'Vinicius',5),
-(8,'Frederico',5),
-(9,'Célia',5);
+(7,'Machado de Assis',1),
+(8,'Stephen King',1),
+(9,'Victor Hugo',2),
+(10,'Franz Kafka',3),
+(11,'Haruki Murakami',4),
+(12,'John Green',4),
+(13,'Robert Lawrence',4);
+
 
 insert into usuario values
 ('joao@gmail',md5('batata123'),1),
@@ -335,16 +354,16 @@ insert into usuario values
 ('celia@gmail',md5('celinha'),9);
 
 insert into livro values
-(1,'Helena','Machado de Assis'),
-(2,'O Iluminado','Stephen King'),
-(3,'Goosebumps','Robert Lawrence'),
-(4,'Os Miseráveis','Victor Hugo'),
-(5,'Dom Casmurro','Machado de Assis'),
-(6,'A Metamorfose','Franz Kafka'),
-(7,'Norwegian Wood','Haruki Murakami'),
-(8,'Kafka a beira-mar','Haruki Murakami'),
-(9,'A Culpa é das Estrelas','John Green'),
-(10,'Tartarugas até lá embaixo','John Green');
+(1,'Helena'),
+(2,'O Iluminado'),
+(3,'Goosebumps'),
+(4,'Os Miseráveis'),
+(5,'Dom Casmurro'),
+(6,'A Metamorfose'),
+(7,'Norwegian Wood'),
+(8,'Kafka a beira-mar'),
+(9,'A Culpa é das Estrelas'),
+(10,'Tartarugas até lá embaixo');
 
 insert into postagem_posta_comentario values
 (1,'2018-02-04','12:00:00',1,1),
@@ -352,8 +371,7 @@ insert into postagem_posta_comentario values
 (3,'2018-04-06','08:45:00',3,3),
 (4,'2018-05-06','18:00:00',4,3),
 (5,'2018-05-06','20:00:00',5,4),
-(6,'2018-06-07','05:00:00',6,6),
-(7,'2018-07-07','15:00:00',7,7);
+(6,'2018-06-07','05:00:00',6,6);
 
 insert into evento values
 (1,'Leitura Coletiva'),
@@ -375,10 +393,10 @@ insert into tipo_evento values
 ('Outros',3);
 
 insert into leu values
-(1,1),(1,2),(1,3),(2,2),(2,3),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(5,1),(5,2),(5,3),(5,6),(5,7),(6,1),(7,8),(8,9);
+(1,1),(1,2),(1,3),(2,2),(2,3),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(5,1),(5,2),(5,3),(5,6),(6,1);
 
 insert into amizade values
-(1,2),(1,3),(1,4),(2,3),(2,4),(2,5),(3,4),(3,5),(3,6),(5,7),(6,8),(6,9),(7,1),(7,2);
+(1,2),(1,3),(1,4),(2,3),(2,4),(2,5),(3,4),(3,5),(3,6);
 
 insert into pais values
 (1,'Brasil'),(2,'Estados Unidos');
@@ -390,10 +408,10 @@ insert into cidade values
 (1,'Vitória',1),(2,'Serra',1),(3,'Campos',2),(4,'Campinas',3),(5,'São Paulo',3);
 
 insert into comparece_evento values
-(1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(2,6),(3,5),(3,7),(4,1),(5,4),(5,7),(6,1),(6,2),(7,5);
+(1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(2,6),(3,5),(4,1),(5,4),(6,1),(6,2);
 
 insert into curte_postagem values
-(1,1),(1,2),(2,2),(3,1),(4,3),(4,4),(5,2),(6,2),(7,2),(8,2),(8,2),(9,3);
+(1,1),(1,2),(2,2),(3,1),(4,3),(4,4),(5,2),(6,2);
 
 insert into evento_acontece values
 (1,1,'2019-01-01','10:00:00'),
@@ -410,6 +428,8 @@ insert into evento_possui_tipo values
 insert into livro_genero values
 (1,2),(2,1),(3,1),(4,2),(5,2),(6,3),(7,2),(8,2),(9,2),(10,3);
 
+insert into escreve_livro values
+(7,1),(7,5),(8,2),(9,4),(10,6),(11,7),(11,8),(12,9),(12,10),(13,3);
 
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELA E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
@@ -417,107 +437,109 @@ insert into livro_genero values
         b) Criar um novo banco de dados para testar a restauracao 
         (em caso de falha na restauração o grupo não pontuará neste quesito)
         c) formato .SQL
-  /* Lógico_1: */
-
-CREATE TABLE PESSOA (
-    cod_pessoa serial PRIMARY KEY,
+ CREATE TABLE PESSOA (
+    cod_pessoa int PRIMARY KEY,
     nome varchar(50),
-    FK_CIDADE_cod_cidade serial
+    FK_CIDADE_cod_cidade int
 );
 
 CREATE TABLE USUARIO (
     email varchar(50),
     senha varchar(50),
-    FK_PESSOA_cod_pessoa serial PRIMARY KEY
+    FK_PESSOA_cod_pessoa int PRIMARY KEY
 );
 
 CREATE TABLE EVENTO (
-    cod_evento serial PRIMARY KEY,
+    cod_evento int PRIMARY KEY,
     nome_evento varchar(50)
 );
 
 CREATE TABLE POSTAGEM_Posta_comentario (
-    cod_postagem serial PRIMARY KEY,
+    cod_postagem int PRIMARY KEY,
     data_postagem date,
     hora_postagem time,
-    FK_LIVRO_cod_livro serial,
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial
+    FK_LIVRO_cod_livro int,
+    FK_USUARIO_FK_PESSOA_cod_pessoa int
 );
 
 CREATE TABLE LIVRO (
-    cod_livro serial PRIMARY KEY,
-    nome_livro varchar(50),
-    autor varchar(50)
+    cod_livro int PRIMARY KEY,
+    nome_livro varchar(50)
 );
 
 CREATE TABLE ESTADO (
-    cod_estado serial PRIMARY KEY,
+    cod_estado int PRIMARY KEY,
     estado_desc varchar(50),
-    FK_PAIS_cod_pais serial
+    FK_PAIS_cod_pais int
 );
 
 CREATE TABLE CIDADE (
-    cod_cidade serial PRIMARY KEY,
+    cod_cidade int PRIMARY KEY,
     cidade_desc varchar(50),
-    FK_ESTADO_cod_estado serial
+    FK_ESTADO_cod_estado int
 );
 
 CREATE TABLE PAIS (
-    cod_pais serial PRIMARY KEY,
+    cod_pais int PRIMARY KEY,
     pais_desc varchar(50)
 );
 
 CREATE TABLE GENERO (
-    cod_genero serial PRIMARY KEY,
+    cod_genero int PRIMARY KEY,
     genero_desc varchar(50)
 );
 
 CREATE TABLE TIPO_EVENTO (
     tipo_desc varchar(50),
-    cod_tipo serial PRIMARY KEY
+    cod_tipo int PRIMARY KEY
 );
 
 CREATE TABLE Amizade (
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial,
-    FK_USUARIO_FK_PESSOA_cod_pessoa_ serial
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_USUARIO_FK_PESSOA_cod_pessoa_ int
 );
 
 CREATE TABLE Comparece_evento (
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial,
-    FK_EVENTO_cod_evento serial
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_EVENTO_cod_evento int
 );
 
 CREATE TABLE Leu (
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial,
-    FK_LIVRO_cod_livro serial
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_LIVRO_cod_livro int
 );
 
-CREATE TABLE Curte_postagem (
-    FK_USUARIO_FK_PESSOA_cod_pessoa serial,
-    FK_POSTAGEM_Posta_comentario_cod_postagem serial
+CREATE TABLE Curte (
+    FK_USUARIO_FK_PESSOA_cod_pessoa int,
+    FK_POSTAGEM_Posta_comentario_cod_postagem int
 );
 
 CREATE TABLE Evento_acontece (
-    FK_CIDADE_cod_cidade serial,
-    FK_EVENTO_cod_evento serial,
+    FK_CIDADE_cod_cidade int,
+    FK_EVENTO_cod_evento int,
     data_evento date,
     hora_evento time
 );
 
 CREATE TABLE Livro_genero (
-    FK_LIVRO_cod_livro serial,
-    FK_GENERO_cod_genero serial
+    FK_LIVRO_cod_livro int,
+    FK_GENERO_cod_genero int
+);
+
+CREATE TABLE Escreve_livro (
+    FK_PESSOA_cod_pessoa int,
+    FK_LIVRO_cod_livro int
 );
 
 CREATE TABLE Evento_possui_tipo (
-    FK_TIPO_EVENTO_cod_tipo serial,
-    FK_EVENTO_cod_evento serial
+    FK_TIPO_EVENTO_cod_tipo int,
+    FK_EVENTO_cod_evento int
 );
  
 ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_1
     FOREIGN KEY (FK_CIDADE_cod_cidade)
     REFERENCES CIDADE (cod_cidade)
-    ON DELETE SET NULL ON UPDATE CASCADE;
+    ON DELETE CASCADE ON UPDATE CASCADE;
  
 ALTER TABLE USUARIO ADD CONSTRAINT FK_USUARIO_1
     FOREIGN KEY (FK_PESSOA_cod_pessoa)
@@ -572,12 +594,12 @@ ALTER TABLE Leu ADD CONSTRAINT FK_Leu_1
     REFERENCES LIVRO (cod_livro)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE Curte_postagem ADD CONSTRAINT FK_Curte_postagem_0
+ALTER TABLE Curte ADD CONSTRAINT FK_Curte_0
     FOREIGN KEY (FK_USUARIO_FK_PESSOA_cod_pessoa)
     REFERENCES USUARIO (FK_PESSOA_cod_pessoa)
     ON DELETE SET NULL ON UPDATE CASCADE;
  
-ALTER TABLE Curte_postagem ADD CONSTRAINT FK_Curte_postagem_1
+ALTER TABLE Curte ADD CONSTRAINT FK_Curte_1
     FOREIGN KEY (FK_POSTAGEM_Posta_comentario_cod_postagem)
     REFERENCES POSTAGEM_Posta_comentario (cod_postagem)
     ON DELETE SET NULL ON UPDATE CASCADE;
@@ -602,6 +624,16 @@ ALTER TABLE Livro_genero ADD CONSTRAINT FK_Livro_genero_1
     REFERENCES GENERO (cod_genero)
     ON DELETE RESTRICT ON UPDATE RESTRICT;
  
+ALTER TABLE Escreve_livro ADD CONSTRAINT FK_Escreve_livro_0
+    FOREIGN KEY (FK_PESSOA_cod_pessoa)
+    REFERENCES PESSOA (cod_pessoa)
+    ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE Escreve_livro ADD CONSTRAINT FK_Escreve_livro_1
+    FOREIGN KEY (FK_LIVRO_cod_livro)
+    REFERENCES LIVRO (cod_livro)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
 ALTER TABLE Evento_possui_tipo ADD CONSTRAINT FK_Evento_possui_tipo_0
     FOREIGN KEY (FK_TIPO_EVENTO_cod_tipo)
     REFERENCES TIPO_EVENTO (cod_tipo)
@@ -612,16 +644,21 @@ ALTER TABLE Evento_possui_tipo ADD CONSTRAINT FK_Evento_possui_tipo_1
     REFERENCES EVENTO (cod_evento)
     ON DELETE SET NULL ON UPDATE CASCADE;
     
- insert into pessoa values
+insert into pessoa values
 (1,'João',1),
 (2,'Pedro',2),
 (3,'José',2),
 (4,'Maria',3),
 (5,'Joana',4),
 (6,'Mário',4),
-(7,'Vinicius',5),
-(8,'Frederico',5),
-(9,'Célia',5);
+(7,'Machado de Assis',1),
+(8,'Stephen King',1),
+(9,'Victor Hugo',2),
+(10,'Franz Kafka',3),
+(11,'Haruki Murakami',4),
+(12,'John Green',4),
+(13,'Robert Lawrence',4);
+
 
 insert into usuario values
 ('joao@gmail',md5('batata123'),1),
@@ -635,16 +672,16 @@ insert into usuario values
 ('celia@gmail',md5('celinha'),9);
 
 insert into livro values
-(1,'Helena','Machado de Assis'),
-(2,'O Iluminado','Stephen King'),
-(3,'Goosebumps','Robert Lawrence'),
-(4,'Os Miseráveis','Victor Hugo'),
-(5,'Dom Casmurro','Machado de Assis'),
-(6,'A Metamorfose','Franz Kafka'),
-(7,'Norwegian Wood','Haruki Murakami'),
-(8,'Kafka a beira-mar','Haruki Murakami'),
-(9,'A Culpa é das Estrelas','John Green'),
-(10,'Tartarugas até lá embaixo','John Green');
+(1,'Helena'),
+(2,'O Iluminado'),
+(3,'Goosebumps'),
+(4,'Os Miseráveis'),
+(5,'Dom Casmurro'),
+(6,'A Metamorfose'),
+(7,'Norwegian Wood'),
+(8,'Kafka a beira-mar'),
+(9,'A Culpa é das Estrelas'),
+(10,'Tartarugas até lá embaixo');
 
 insert into postagem_posta_comentario values
 (1,'2018-02-04','12:00:00',1,1),
@@ -652,8 +689,7 @@ insert into postagem_posta_comentario values
 (3,'2018-04-06','08:45:00',3,3),
 (4,'2018-05-06','18:00:00',4,3),
 (5,'2018-05-06','20:00:00',5,4),
-(6,'2018-06-07','05:00:00',6,6),
-(7,'2018-07-07','15:00:00',7,7);
+(6,'2018-06-07','05:00:00',6,6);
 
 insert into evento values
 (1,'Leitura Coletiva'),
@@ -675,10 +711,10 @@ insert into tipo_evento values
 ('Outros',3);
 
 insert into leu values
-(1,1),(1,2),(1,3),(2,2),(2,3),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(5,1),(5,2),(5,3),(5,6),(5,7),(6,1),(7,8),(8,9);
+(1,1),(1,2),(1,3),(2,2),(2,3),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(5,1),(5,2),(5,3),(5,6),(6,1);
 
 insert into amizade values
-(1,2),(1,3),(1,4),(2,3),(2,4),(2,5),(3,4),(3,5),(3,6),(5,7),(6,8),(6,9),(7,1),(7,2);
+(1,2),(1,3),(1,4),(2,3),(2,4),(2,5),(3,4),(3,5),(3,6);
 
 insert into pais values
 (1,'Brasil'),(2,'Estados Unidos');
@@ -690,10 +726,10 @@ insert into cidade values
 (1,'Vitória',1),(2,'Serra',1),(3,'Campos',2),(4,'Campinas',3),(5,'São Paulo',3);
 
 insert into comparece_evento values
-(1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(2,6),(3,5),(3,7),(4,1),(5,4),(5,7),(6,1),(6,2),(7,5);
+(1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(2,6),(3,5),(4,1),(5,4),(6,1),(6,2);
 
 insert into curte_postagem values
-(1,1),(1,2),(2,2),(3,1),(4,3),(4,4),(5,2),(6,2),(7,2),(8,2),(8,2),(9,3);
+(1,1),(1,2),(2,2),(3,1),(4,3),(4,4),(5,2),(6,2);
 
 insert into evento_acontece values
 (1,1,'2019-01-01','10:00:00'),
@@ -709,6 +745,9 @@ insert into evento_possui_tipo values
 
 insert into livro_genero values
 (1,2),(2,1),(3,1),(4,2),(5,2),(6,3),(7,2),(8,2),(9,2),(10,3);
+
+insert into escreve_livro values
+(7,1),(7,5),(8,2),(9,4),(10,6),(11,7),(11,8),(12,9),(12,10),(13,3);
 
 #### 8.3 INCLUSÃO DO SCRIPT PARA EXCLUSÃO DE TABELAS EXISTENTES, CRIAÇÃO DE TABELA NOVAS E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
