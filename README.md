@@ -348,10 +348,7 @@ insert into usuario values
 ('jose@gmail',md5('senha123'),3),
 ('maria@gmail',md5('maria123'),4),
 ('joana@gmail',md5('bolo123'),5),
-('mario@gmail',md5('luigi123'),6),
-('vinicius@gmail',md5('a123'),7),
-('fred@gmail',md5('fredo123'),8),
-('celia@gmail',md5('celinha'),9);
+('mario@gmail',md5('luigi123'),6);
 
 insert into livro values
 (1,'Helena'),
@@ -666,10 +663,7 @@ insert into usuario values
 ('jose@gmail',md5('senha123'),3),
 ('maria@gmail',md5('maria123'),4),
 ('joana@gmail',md5('bolo123'),5),
-('mario@gmail',md5('luigi123'),6),
-('vinicius@gmail',md5('a123'),7),
-('fred@gmail',md5('fredo123'),8),
-('celia@gmail',md5('celinha'),9);
+('mario@gmail',md5('luigi123'),6);
 
 insert into livro values
 (1,'Helena'),
