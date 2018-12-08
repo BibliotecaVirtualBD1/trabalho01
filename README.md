@@ -326,107 +326,60 @@ ALTER TABLE Evento_possui_tipo ADD CONSTRAINT FK_Evento_possui_tipo_1
         a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físic
         b) formato .SQL
         
-insert into pessoa values
-(1,'João',1),
-(2,'Pedro',2),
-(3,'José',2),
-(4,'Maria',3),
-(5,'Joana',4),
-(6,'Mário',4),
-(7,'Machado de Assis',1),
-(8,'Stephen King',1),
-(9,'Victor Hugo',2),
-(10,'Franz Kafka',3),
-(11,'Haruki Murakami',4),
-(12,'John Green',4),
-(13,'Robert Lawrence',4);
+insert into pais values (1,'Brasil'),(2,'Estados Unidos'),(3,'França'),(4,'Japão'),(5,'Áustria');
 
+insert into estado values (1,'Espírito Santo',1),(2,'Rio de Janeiro',1),(3,'São Paulo',1),
+(4,'Indiana',2),(5,'Maine',2),(6,'Nova Iorque',2),(7,'Doubs',3),(8,'Kyoto',4),(9,'Boemia',5);
 
-insert into usuario values
-('joao@gmail',md5('batata123'),1),
-('pedro@gmail',md5('paozinho123'),2),
-('jose@gmail',md5('senha123'),3),
-('maria@gmail',md5('maria123'),4),
-('joana@gmail',md5('bolo123'),5),
-('mario@gmail',md5('luigi123'),6);
+insert into cidade values (1,'Vitória',1),(2,'Serra',1),(3,'Campos',2),(4,'Campinas',3),(5,'São Paulo',3),
+(6,'Indianápolis',4),(7,'Portland',5),(8,'Nova Iorque',6),(9,'Besançon',7),(10,'Kyoto',8),(11,'Praga',9);
 
-insert into livro values
-(1,'Helena'),
-(2,'O Iluminado'),
-(3,'Goosebumps'),
-(4,'Os Miseráveis'),
-(5,'Dom Casmurro'),
-(6,'A Metamorfose'),
-(7,'Norwegian Wood'),
-(8,'Kafka a beira-mar'),
-(9,'A Culpa é das Estrelas'),
-(10,'Tartarugas até lá embaixo');
+insert into pessoa values (1,'João',1), (2,'Pedro',2), (3,'José',2), (4,'Maria',3), (5,'Joana',4), 
+(6,'Mário',4),(7,'Plínio',5),(8,'Fernando',5),(9,'Rafael',5),(10,'Carlos',5),(11,'Leonardo',5),(12,'John',6),(13,'Bob',7),(14,'Fred',8),
+(15,'Haru',10),(16,'Machado de Assis',3), (17,'Stephen King',7), (18,'Victor Hugo',9), (19,'Franz Kafka',11), 
+(20,'Haruki Murakami',10), (21,'John Green',6), (22,'Robert Lawrence',8);
 
-insert into postagem_posta_comentario values
-(1,'2018-02-04','12:00:00',1,1),
-(2,'2018-02-05','11:30:00',2,2),
-(3,'2018-04-06','08:45:00',3,3),
-(4,'2018-05-06','18:00:00',4,3),
-(5,'2018-05-06','20:00:00',5,4),
-(6,'2018-06-07','05:00:00',6,6);
+insert into usuario values ('joao@gmail',md5('batata123'),1), ('pedro@gmail',md5('paozinho123'),2), ('jose@gmail',md5('senha123'),3),
+('maria@gmail',md5('maria123'),4),('joana@gmail',md5('bolo123'),5), ('mario@gmail',md5('luigi123'),6),('plinio@gmail',md5('plinio123'),7),
+('fernando@gmail',md5('fer123'),8),('rafa@gmail',md5('rafa123'),9),('carlos@gmail',md5('car123'),10),('leo@gmail',md5('leo123'),11),
+('john@gmail',md5('john123'),12),('bob@gmail',md5('bob123'),13),('fred@gmail',md5('fred123'),14),('haru@gmail',md5('haru123'),15);
 
-insert into evento values
-(1,'Leitura Coletiva'),
-(2,'Encontro de Leitores'),
-(3,'Doação de Livros'),
-(4,'Livros Antigos'),
-(5,'Feira de livros'),
-(6,'Sebo Veredas'),
-(7,'Venda de livros usados');
+insert into livro values (1,'Helena'), (2,'O Iluminado'), (3,'Goosebumps'), (4,'Os Miseráveis'), (5,'Dom Casmurro'), (6,'A Metamorfose'), 
+(7,'Norwegian Wood'), (8,'Kafka a beira-mar'), (9,'A Culpa é das Estrelas'), (10,'Tartarugas até lá embaixo');
 
-insert into genero values
-(1,'Terror'),
-(2,'Romance'),
-(3,'Ficção');
+insert into postagem_posta_comentario values (1,'2018-02-04','12:00:00',1,1), (2,'2018-02-05','11:30:00',2,2), (3,'2018-04-06','08:45:00',3,3),
+(4,'2018-05-06','18:00:00',4,3), (5,'2018-05-06','20:00:00',5,4), (6,'2018-06-07','07:00:00',6,6),(7,'2018-06-07','09:30:00',7,8),
+(8,'2018-06-07','15:00:00',7,9),(9,'2018-07-07','18:00:00',7,11),(10,'2018-08-07','20:00:00',8,14);
 
-insert into tipo_evento values
-('Encontro',1),
-('Vendas',2),
-('Outros',3);
+insert into evento values (1,'Leitura Coletiva'), (2,'Encontro de Leitores'), (3,'Doação de Livros'), (4,'Livros Antigos'), (5,'Feira de livros'), 
+(6,'Sebo Veredas'), (7,'Venda de livros usados');
 
-insert into leu values
-(1,1),(1,2),(1,3),(2,2),(2,3),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(5,1),(5,2),(5,3),(5,6),(6,1);
+insert into genero values (1,'Terror'), (2,'Romance'), (3,'Ficção');
 
-insert into amizade values
-(1,2),(1,3),(1,4),(2,3),(2,4),(2,5),(3,4),(3,5),(3,6);
+insert into tipo_evento values ('Encontro',1), ('Vendas',2), ('Outros',3);
 
-insert into pais values
-(1,'Brasil'),(2,'Estados Unidos');
+insert into leu values (1,1),(1,2),(1,3),(2,2),(2,3),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(5,1),(5,2),(5,3),(5,6),(6,1),
+(7,1),(7,2),(7,3),(7,4),(8,2),(8,7),(8,10),(9,1),(10,3),(10,4),(12,3),(12,5),(12,7),(12,9),(13,1),(13,10),(14,2),(14,3),(14,6),(14,9),(15,1),(15,2),(15,3),
+(15,4),(15,5),(15,6),(15,7),(15,8),(15,9),(15,10);
 
-insert into estado values
-(1,'Espírito Santo',1),(2,'Rio de Janeiro',1),(3,'São Paulo',1);
+insert into amizade values (1,2),(1,3),(1,4),(2,3),(2,4),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(4,3),(4,5),(4,11),(4,13),(4,14),(5,10),(5,12),(5,15),(6,1),(6,3),
+(7,1),(7,2),(7,3),(7,4),(7,5),(9,10),(9,11),(10,2),(11,12),(11,13),(11,4),(12,5),(13,7),(14,1),(14,2),(14,3),(15,6),(15,7),(15,9);
 
-insert into cidade values
-(1,'Vitória',1),(2,'Serra',1),(3,'Campos',2),(4,'Campinas',3),(5,'São Paulo',3);
+insert into comparece_evento values (1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(2,6),(3,5),(4,1),(5,4),(6,1),(6,2),
+(7,1),(7,3),(7,4),(8,2),(8,7),(8,1),(9,1),(10,3),(10,4),(12,3),(12,4),(12,6),(12,7),(13,1),(13,2),
+(14,2),(14,3),(14,5),(14,6),(15,1),(15,2),(15,3),(15,4),(15,5),(15,6),(15,7);
 
-insert into comparece_evento values
-(1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(2,6),(3,5),(4,1),(5,4),(6,1),(6,2);
+insert into curte values (1,1),(1,2),(2,2),(3,1),(4,3),(4,4),(5,2),(6,2),(7,5),(7,6),(7,7),(8,1),(8,8),(9,9),(9,10),(10,5),(10,6),(10,7),
+(11,3),(11,9),(12,1),(13,4),(13,5),(14,7),(14,9),(15,6),(15,8);
 
-insert into curte_postagem values
-(1,1),(1,2),(2,2),(3,1),(4,3),(4,4),(5,2),(6,2);
+insert into evento_acontece values (1,1,'2019-01-01','10:00:00'), (2,2,'2019-02-01','18:00:00'), (3,3,'2019-03-04','12:00:00'), 
+(5,4,'2019-05-05','11:00:00'), (6,5,'2019-08-10','15:00:00'), (7,6,'2019-01-11','19:00:00'), (7,7,'2019-09-12','20:00:00');
 
-insert into evento_acontece values
-(1,1,'2019-01-01','10:00:00'),
-(1,2,'2019-02-01','18:00:00'),
-(2,3,'2019-03-04','12:00:00'),
-(3,4,'2019-05-05','11:00:00'),
-(3,5,'2019-08-10','15:00:00'),
-(4,6,'2019-01-11','19:00:00'),
-(5,7,'2019-09-12','20:00:00');
+insert into evento_possui_tipo values (1,1),(1,2),(3,3),(3,4),(3,5),(3,6),(3,7);
 
-insert into evento_possui_tipo values
-(1,1),(1,2),(3,3),(3,4),(3,5),(3,6),(3,7);
+insert into livro_genero values (1,2),(2,1),(3,1),(4,2),(5,2),(6,3),(7,2),(8,2),(9,2),(10,3);
 
-insert into livro_genero values
-(1,2),(2,1),(3,1),(4,2),(5,2),(6,3),(7,2),(8,2),(9,2),(10,3);
-
-insert into escreve_livro values
-(7,1),(7,5),(8,2),(9,4),(10,6),(11,7),(11,8),(12,9),(12,10),(13,3);
+insert into escreve_livro values (16,1),(16,5),(17,2),(18,4),(19,6),(20,7),(20,8),(21,9),(21,10),(22,3);
 
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELA E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
@@ -641,108 +594,60 @@ ALTER TABLE Evento_possui_tipo ADD CONSTRAINT FK_Evento_possui_tipo_1
     REFERENCES EVENTO (cod_evento)
     ON DELETE SET NULL ON UPDATE CASCADE;
     
-insert into pessoa values
-(1,'João',1),
-(2,'Pedro',2),
-(3,'José',2),
-(4,'Maria',3),
-(5,'Joana',4),
-(6,'Mário',4),
-(7,'Machado de Assis',1),
-(8,'Stephen King',1),
-(9,'Victor Hugo',2),
-(10,'Franz Kafka',3),
-(11,'Haruki Murakami',4),
-(12,'John Green',4),
-(13,'Robert Lawrence',4);
+insert into pais values (1,'Brasil'),(2,'Estados Unidos'),(3,'França'),(4,'Japão'),(5,'Áustria');
 
+insert into estado values (1,'Espírito Santo',1),(2,'Rio de Janeiro',1),(3,'São Paulo',1),
+(4,'Indiana',2),(5,'Maine',2),(6,'Nova Iorque',2),(7,'Doubs',3),(8,'Kyoto',4),(9,'Boemia',5);
 
-insert into usuario values
-('joao@gmail',md5('batata123'),1),
-('pedro@gmail',md5('paozinho123'),2),
-('jose@gmail',md5('senha123'),3),
-('maria@gmail',md5('maria123'),4),
-('joana@gmail',md5('bolo123'),5),
-('mario@gmail',md5('luigi123'),6);
+insert into cidade values (1,'Vitória',1),(2,'Serra',1),(3,'Campos',2),(4,'Campinas',3),(5,'São Paulo',3),
+(6,'Indianápolis',4),(7,'Portland',5),(8,'Nova Iorque',6),(9,'Besançon',7),(10,'Kyoto',8),(11,'Praga',9);
 
-insert into livro values
-(1,'Helena'),
-(2,'O Iluminado'),
-(3,'Goosebumps'),
-(4,'Os Miseráveis'),
-(5,'Dom Casmurro'),
-(6,'A Metamorfose'),
-(7,'Norwegian Wood'),
-(8,'Kafka a beira-mar'),
-(9,'A Culpa é das Estrelas'),
-(10,'Tartarugas até lá embaixo');
+insert into pessoa values (1,'João',1), (2,'Pedro',2), (3,'José',2), (4,'Maria',3), (5,'Joana',4), 
+(6,'Mário',4),(7,'Plínio',5),(8,'Fernando',5),(9,'Rafael',5),(10,'Carlos',5),(11,'Leonardo',5),(12,'John',6),(13,'Bob',7),(14,'Fred',8),
+(15,'Haru',10),(16,'Machado de Assis',3), (17,'Stephen King',7), (18,'Victor Hugo',9), (19,'Franz Kafka',11), 
+(20,'Haruki Murakami',10), (21,'John Green',6), (22,'Robert Lawrence',8);
 
-insert into postagem_posta_comentario values
-(1,'2018-02-04','12:00:00',1,1),
-(2,'2018-02-05','11:30:00',2,2),
-(3,'2018-04-06','08:45:00',3,3),
-(4,'2018-05-06','18:00:00',4,3),
-(5,'2018-05-06','20:00:00',5,4),
-(6,'2018-06-07','05:00:00',6,6);
+insert into usuario values ('joao@gmail',md5('batata123'),1), ('pedro@gmail',md5('paozinho123'),2), ('jose@gmail',md5('senha123'),3),
+('maria@gmail',md5('maria123'),4),('joana@gmail',md5('bolo123'),5), ('mario@gmail',md5('luigi123'),6),('plinio@gmail',md5('plinio123'),7),
+('fernando@gmail',md5('fer123'),8),('rafa@gmail',md5('rafa123'),9),('carlos@gmail',md5('car123'),10),('leo@gmail',md5('leo123'),11),
+('john@gmail',md5('john123'),12),('bob@gmail',md5('bob123'),13),('fred@gmail',md5('fred123'),14),('haru@gmail',md5('haru123'),15);
 
-insert into evento values
-(1,'Leitura Coletiva'),
-(2,'Encontro de Leitores'),
-(3,'Doação de Livros'),
-(4,'Livros Antigos'),
-(5,'Feira de livros'),
-(6,'Sebo Veredas'),
-(7,'Venda de livros usados');
+insert into livro values (1,'Helena'), (2,'O Iluminado'), (3,'Goosebumps'), (4,'Os Miseráveis'), (5,'Dom Casmurro'), (6,'A Metamorfose'), 
+(7,'Norwegian Wood'), (8,'Kafka a beira-mar'), (9,'A Culpa é das Estrelas'), (10,'Tartarugas até lá embaixo');
 
-insert into genero values
-(1,'Terror'),
-(2,'Romance'),
-(3,'Ficção');
+insert into postagem_posta_comentario values (1,'2018-02-04','12:00:00',1,1), (2,'2018-02-05','11:30:00',2,2), (3,'2018-04-06','08:45:00',3,3),
+(4,'2018-05-06','18:00:00',4,3), (5,'2018-05-06','20:00:00',5,4), (6,'2018-06-07','07:00:00',6,6),(7,'2018-06-07','09:30:00',7,8),
+(8,'2018-06-07','15:00:00',7,9),(9,'2018-07-07','18:00:00',7,11),(10,'2018-08-07','20:00:00',8,14);
 
-insert into tipo_evento values
-('Encontro',1),
-('Vendas',2),
-('Outros',3);
+insert into evento values (1,'Leitura Coletiva'), (2,'Encontro de Leitores'), (3,'Doação de Livros'), (4,'Livros Antigos'), (5,'Feira de livros'), 
+(6,'Sebo Veredas'), (7,'Venda de livros usados');
 
-insert into leu values
-(1,1),(1,2),(1,3),(2,2),(2,3),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(5,1),(5,2),(5,3),(5,6),(6,1);
+insert into genero values (1,'Terror'), (2,'Romance'), (3,'Ficção');
 
-insert into amizade values
-(1,2),(1,3),(1,4),(2,3),(2,4),(2,5),(3,4),(3,5),(3,6);
+insert into tipo_evento values ('Encontro',1), ('Vendas',2), ('Outros',3);
 
-insert into pais values
-(1,'Brasil'),(2,'Estados Unidos');
+insert into leu values (1,1),(1,2),(1,3),(2,2),(2,3),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(5,1),(5,2),(5,3),(5,6),(6,1),
+(7,1),(7,2),(7,3),(7,4),(8,2),(8,7),(8,10),(9,1),(10,3),(10,4),(12,3),(12,5),(12,7),(12,9),(13,1),(13,10),(14,2),(14,3),(14,6),(14,9),(15,1),(15,2),(15,3),
+(15,4),(15,5),(15,6),(15,7),(15,8),(15,9),(15,10);
 
-insert into estado values
-(1,'Espírito Santo',1),(2,'Rio de Janeiro',1),(3,'São Paulo',1);
+insert into amizade values (1,2),(1,3),(1,4),(2,3),(2,4),(2,5),(3,4),(3,5),(3,6),(4,1),(4,2),(4,3),(4,5),(4,11),(4,13),(4,14),(5,10),(5,12),(5,15),(6,1),(6,3),
+(7,1),(7,2),(7,3),(7,4),(7,5),(9,10),(9,11),(10,2),(11,12),(11,13),(11,4),(12,5),(13,7),(14,1),(14,2),(14,3),(15,6),(15,7),(15,9);
 
-insert into cidade values
-(1,'Vitória',1),(2,'Serra',1),(3,'Campos',2),(4,'Campinas',3),(5,'São Paulo',3);
+insert into comparece_evento values (1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(2,6),(3,5),(4,1),(5,4),(6,1),(6,2),
+(7,1),(7,3),(7,4),(8,2),(8,7),(8,1),(9,1),(10,3),(10,4),(12,3),(12,4),(12,6),(12,7),(13,1),(13,2),
+(14,2),(14,3),(14,5),(14,6),(15,1),(15,2),(15,3),(15,4),(15,5),(15,6),(15,7);
 
-insert into comparece_evento values
-(1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(2,6),(3,5),(4,1),(5,4),(6,1),(6,2);
+insert into curte values (1,1),(1,2),(2,2),(3,1),(4,3),(4,4),(5,2),(6,2),(7,5),(7,6),(7,7),(8,1),(8,8),(9,9),(9,10),(10,5),(10,6),(10,7),
+(11,3),(11,9),(12,1),(13,4),(13,5),(14,7),(14,9),(15,6),(15,8);
 
-insert into curte_postagem values
-(1,1),(1,2),(2,2),(3,1),(4,3),(4,4),(5,2),(6,2);
+insert into evento_acontece values (1,1,'2019-01-01','10:00:00'), (2,2,'2019-02-01','18:00:00'), (3,3,'2019-03-04','12:00:00'), 
+(5,4,'2019-05-05','11:00:00'), (6,5,'2019-08-10','15:00:00'), (7,6,'2019-01-11','19:00:00'), (7,7,'2019-09-12','20:00:00');
 
-insert into evento_acontece values
-(1,1,'2019-01-01','10:00:00'),
-(1,2,'2019-02-01','18:00:00'),
-(2,3,'2019-03-04','12:00:00'),
-(3,4,'2019-05-05','11:00:00'),
-(3,5,'2019-08-10','15:00:00'),
-(4,6,'2019-01-11','19:00:00'),
-(5,7,'2019-09-12','20:00:00');
+insert into evento_possui_tipo values (1,1),(1,2),(3,3),(3,4),(3,5),(3,6),(3,7);
 
-insert into evento_possui_tipo values
-(1,1),(1,2),(3,3),(3,4),(3,5),(3,6),(3,7);
+insert into livro_genero values (1,2),(2,1),(3,1),(4,2),(5,2),(6,3),(7,2),(8,2),(9,2),(10,3);
 
-insert into livro_genero values
-(1,2),(2,1),(3,1),(4,2),(5,2),(6,3),(7,2),(8,2),(9,2),(10,3);
-
-insert into escreve_livro values
-(7,1),(7,5),(8,2),(9,4),(10,6),(11,7),(11,8),(12,9),(12,10),(13,3);
-
+insert into escreve_livro values (16,1),(16,5),(17,2),(18,4),(19,6),(20,7),(20,8),(21,9),(21,10),(22,3);
 #### 8.3 INCLUSÃO DO SCRIPT PARA EXCLUSÃO DE TABELAS EXISTENTES, CRIAÇÃO DE TABELA NOVAS E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
         (Drop table + Create de tabelas e estruturas de dados + dados a serem inseridos)
