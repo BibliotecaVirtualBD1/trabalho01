@@ -97,10 +97,45 @@ https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Tabela_b
 
 #### 5.3 DESCRIÇÃO DOS DADOS 
     [objeto]: [descrição do objeto]
+    PESSOA: Tabela que armazena as informações de cada pessoa
+      cod_pessoa: armazena o código identificador de cada pessoa
+      nome: armazena o nome de cada pessoa
+      
+    USUARIO: Tabela que armazena as informações dos usuários
+      email: armazena o endereço de e-mail do usuário
+      senha: armazena um hash criptografado da senha do usuário
+      
+    CIDADE: Tabelza que armazena as cidades cadastradas no sistema
+      cod_cidade: armazena o identificador da cidade
+      cidade_desc: armazena o nome da cidade
+    ESTADO: Tabela que armazena os estados cadastrados no sistema
+      cod_estado: armazena o identificador da cidade
+      estado_desc: armazena o nome do estado
+    PAÍS: Tabela que armazena os países cadastrados no sistema
+      cod_pais: armazena o identificador do país
+      pais_desc: armazena o nome do país
+      
+    EVENTO: Tabela que armazena as inforações sobre o evento
+    data_evento: armazena a data (dia, mês, ano) onde ocorrerá um evento
+    hora_evento: armazena o horário onde ocorrerá um evento
+    cod_evento: armazena o identificador do evento
+    nome_evento: armazena o nome do evento
+    TIPO_EVENTO: Tabela que armazena as informações sobre os tipos de evento existentes
+      cod_tipo: armazena o identificador do tipo de evento
+      tipo_desc: armazena o nome do tipo de evento
     
-    EXEMPLO:
-    CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
-    CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+    LIVRO: Tabela que armazena as informações de cada livro
+      cod_livro: armazena o identificador do livro
+      nome_livro: armazena o nome do livro
+    GENERO: Tabela que armazena as informações dos gêneros dos livros
+      cod_genero: armazena o identificador do gênero
+      genero_desc: armazena o nome do gênero
+      
+    POSTAGEM: Tabela que armazena as informações das postagens
+      cod_postagem: armazena o identificador da postagem
+      data_postagem: armazena a data em que ocorreu a postagem
+      hora_postagem: armazena a hora em que ocorreu a postagem
+      
 
 >## Marco de Entrega 01 em: (12/05/2018)<br>
 ### 6	MODELO LÓGICO<br>
