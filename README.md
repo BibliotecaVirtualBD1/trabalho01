@@ -692,8 +692,8 @@ insert into escreve_livro values (16,1),(16,5),(17,2),(18,4),(19,6),(20,7),(20,8
 
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
-    OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
-    TODAS AS CONSULTAS ATUALIZADAS ESTÃO NO JUPYTER:
+    <b>
+    TODAS AS CONSULTAS ATUALIZADAS ESTÃO NO JUPYTER:</b>
     PDF:
     ARQUIVO .ipynb: 
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
