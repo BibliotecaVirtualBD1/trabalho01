@@ -693,8 +693,8 @@ insert into escreve_livro values (16,1),(16,5),(17,2),(18,4),(19,6),(20,7),(20,8
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 ### TODAS AS CONSULTAS ATUALIZADAS ESTÃO NO JUPYTER:
-    PDF:
-    ARQUIVO .ipynb: 
+    PDF: https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Consultas_trabalho_atualizado.pdf
+    ARQUIVO .ipynb: https://github.com/BibliotecaVirtualBD1/trabalho01/blob/master/arquivos/Consultas_trabalho_atualizado.ipynb
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
 
 select * from autor<br>
